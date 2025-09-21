@@ -483,8 +483,7 @@ const selectedQuotes = isFriendship ? friendshipQuotes : loveQuotes;
 
 console.log(isFriendship, "Selected quotes:", selectedQuotes);
 
-// let i = Math.floor(Math.random() * selectedQuotes.length);
-let i = -1;
+let i = Math.floor(Math.random() * selectedQuotes.length);
 let isAnimating = true;
 const specialTextElement = document.getElementById("special-text");
 showNextPhrase();

@@ -10,12 +10,12 @@
   <meta name="description"
     content="Flores amarillas y una sorpresa especial por el inicio de la primavera. Te espera una sorpresa 🌻" />
 
-  <!-- Favicons / PWA (en carpeta favicon_io/) -->
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
-  <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png" />
-  <link rel="manifest" href="favicon_io/site.webmanifest" />
-  <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon_io/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/favicon_io/site.webmanifest" />
+  <link rel="shortcut icon" href="assets/favicon_io/favicon.ico" type="image/x-icon" />
   <meta name="theme-color" content="#111320" />
 
   <!-- Canonical -->
@@ -30,7 +30,7 @@
   <meta property="og:url" content="https://facundoramos-dev.github.io/pages/sunflowers/" />
 
   <meta property="og:image"
-    content="https://facundoramos-dev.github.io/pages/sunflowers/favicon_io/android-chrome-512x512.png" />
+    content="https://facundoramos-dev.github.io/pages/sunflowers/assets/favicon_io/android-chrome-512x512.png" />
   <meta property="og:image:width" content="512" />
   <meta property="og:image:height" content="512" />
 
@@ -40,14 +40,16 @@
   <meta name="twitter:description"
     content="Te espera una sorpresa 🌻 — abre el enlace y descubre tu regalo de primavera." />
   <meta name="twitter:image"
-    content="https://facundoramos-dev.github.io/pages/sunflowers/favicon_io/android-chrome-512x512.png" />
+    content="https://facundoramos-dev.github.io/pages/sunflowers/assets/favicon_io/android-chrome-512x512.png" />
 
   <!-- Fuentes y estilos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/audio.css" />
+  <link rel="stylesheet" href="assets/css/overlay.css" />
 </head>
 
 <body class="not-loaded">
@@ -314,7 +316,23 @@
     </div>
   </div>
 
-  <script src="./script.js"></script>
+  <!-- Floating button -->
+  <div id="music-toggle" class="music-toggle">🔊</div>
+
+  <!-- Hidden audio -->
+  <audio id="bg-music" loop preload="metadata">
+    <source src="https://pub-f518d368da1b450d88865e20ffe39f8b.r2.dev/sunflower.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Launch overlay -->
+  <div id="launch-overlay" class="launch-overlay">
+    <button id="start-btn" class="start-btn">🌻 Ver sorpresa 🌻</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/audio.js"></script>
 </body>
 
 </html>

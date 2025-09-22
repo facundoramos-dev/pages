@@ -449,32 +449,39 @@ const friendshipQuotes = [
   },
 ];
 
-onload = () => {
-  const c = setTimeout(() => {
+// No arrancamos nada aún. Esperamos al clic del botón central.
+window.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("launch-overlay");
+  const startBtn = document.getElementById("start-btn");
+
+  startBtn.addEventListener("click", async () => {
+    // 1) Música (intenta respetar preferencia previa; si nunca usó, asumimos ON)
+    localStorage.setItem("music-playing", "true");
+    if (typeof window.playBgMusic === "function") {
+      await window.playBgMusic(); // gesto del usuario presente -> debería funcionar en móvil
+    }
+
+    // 2) Quitar overlay
+    overlay.classList.add("is-hidden");
+
+    // 3) Quitar "not-loaded" para permitir animaciones
     document.body.classList.remove("not-loaded");
 
+    // 4) Iniciar estrellas fugaces
     function createShootingStar() {
       const star = document.createElement("div");
       star.className = "shooting-star";
       star.style.top = Math.random() * 60 + "%";
       star.style.animationDelay = "0s";
       star.style.animationDuration = Math.random() * 1.5 + 2 + "s";
-
       document.querySelector(".shooting-stars").appendChild(star);
-
-      setTimeout(() => {
-        star.remove();
-      }, 4000);
+      setTimeout(() => star.remove(), 4000);
     }
-
     setInterval(() => {
-      if (Math.random() > 0.3) {
-        createShootingStar();
-      }
+      if (Math.random() > 0.3) createShootingStar();
     }, Math.random() * 5000 + 3000);
-    clearTimeout(c);
-  }, 1000);
-};
+  });
+});
 
 // Set phases
 const urlParams = new URLSearchParams(window.location.search);
